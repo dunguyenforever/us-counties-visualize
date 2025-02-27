@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D3 Choropleth Map</title>
+  <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <script src="js/topojson.v3.js"></script>
+  <script src="js/d3.v7.min.js"></script>
+  <script src="js/updateBarchart.js"></script>
+  <script src="js/barChart.js"></script>
+  <script src="js/choroplethMap.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/scatterplot.js"></script>
+  <script src="js/main.js"></script>
+
+  
+</head>
+<body>
+  <h3 style="margin: 5px auto; width: fit-content">How Median Household Income Influences Healthcare Access Across U.S. Counties</h3>
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <!-- MAP 1 CONTROLS -->
+    <div style="margin-right: 20px;">
+      <label for="measurement1">Map 1 Measurement:</label>
+      <select id="measurement1" >
+        <option value="median_household_income" selected>Median Household Income</option>
+        <option value="number_of_hospitals">Number of Hospitals</option>
+        <option value="number_of_primary_care_physicians">Number of Primary Care Physicians</option>
+        <option value="percent_no_heath_insurance">Percent No Health Insurance</option>
+      </select>
+      <button id="updateButton1">Update Map 1</button>
+    </div>
+
+    <!-- MAP 2 CONTROLS -->
+    <div>
+      <label for="measurement2">Map 2 Measurement:</label>
+      <select id="measurement2">
+        <option value="median_household_income" selected>Median Household Income</option>
+        <option value="number_of_hospitals">Number of Hospitals</option>
+        <option value="number_of_primary_care_physicians">Number of Primary Care Physicians</option>
+        <option value="percent_no_heath_insurance">Percent No Health Insurance</option>
+      </select>   
+      <button id="updateButton2">Update Map 2</button>
+    </div>
+  </div>
+
+  <!-- Map of the US  -->
+  <div class="map-container">
+    <div class="viz1"></div>
+    <div class="viz2"></div>
+  </div>
+  <div id="tooltip" class="tooltip"></div>
+
+  <!-- Scatterplot to compare between two measurements -->
+  <div class="map-container">
+    <div id="scatterplot"></div>
+    <div id="bar-chart"></div>
+  </div>
+  <div id="scatter-tooltip" class="scatter-tooltip"></div>
+
+  
+
+  <div class="source">
+    Source: Data from 
+    <a href="https://www.cdc.gov/heart-disease-stroke-atlas/about/">
+      Center for Disease Control and Prevention
+    </a>
+  </div>
+</body>
+</html>
